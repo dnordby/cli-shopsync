@@ -13,25 +13,63 @@ It is primarily intended to be used with **existing** stores, but future enhance
 
 ## Installation
 
-`npm i -g @shopsync/cli`
+### Global Installation
+
+```bash
+npm i -g @shopsync/cli
+```
+
+### Local Installation
+
+```bash
+npm install @shopsync/cli
+```
 
 ## Usage
 
-### General:
+### With Global Installation
 
-**Help:** `shopsync -h` \
-**Version:** `shopsync -V`
+```bash
+shopsync init
+shopsync connect mystore.myshopify.com 123456789
+shopsync sync
+```
 
-### Getting Started:
+### With Local Installation
 
-**Create Shopsync Project** \
-`shopsync init [directory]`
+#### Option 1: Using npx (Recommended)
 
-**Connect to Shopify** \
-`shopsync connect [store] [themeId]`
+```bash
+npx shopsync init
+npx shopsync connect mystore.myshopify.com 123456789
+npx shopsync sync
+```
 
-**Sync customizations to local theme** \
-`shopsync sync`
+#### Option 2: Direct execution (Manual setup)
+
+Add this to your project's `package.json`:
+
+```json
+{
+  "bin": {
+    "shopsync": "./node_modules/.bin/shopsync"
+  }
+}
+```
+
+Then run `npm install` to create the symlink, and use:
+
+```bash
+shopsync init
+shopsync connect mystore.myshopify.com 123456789
+shopsync sync
+```
+
+## Commands
+
+- `init [directory]` - Initialize shopsync directory
+- `connect [store] [themeId]` - Connect to a Shopify store / theme
+- `sync` - Sync custom changes to local Shopify theme
 
 ---
 
